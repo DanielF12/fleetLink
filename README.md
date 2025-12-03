@@ -8,10 +8,10 @@ The system allows for complete management of the entire logistics cycle, from re
 
 ## 🚀 Main Features
 
-*   **Dashboard in Real Time:** Overview of the fleet with instant updates (via WebSocket/Firestore) of load status and resource availability.
+*   **Dashboard in Real Time:** Overview of the fleet with instant updates (via Firestore) of load status and resource availability.
 *   **Load Management:** Load creation, editing, and tracking. Automatic route calculation (distance and duration) and visualization on the map.
 *   **Driver Management:** Complete registration with CNH validation and historical links.
-*   **Truck Management:** Fleet control, maintenance status, and cargo capacity.
+*   **Truck Management:** Fleet control, maintenance status, and load capacity.
 *   **Intelligent Routing:** Integration with **Mapbox** to trace optimized routes and simulate the journey.
 *   **Robust Business Rules:**
     *   Block trucks in maintenance.
@@ -24,7 +24,7 @@ The system allows for complete management of the entire logistics cycle, from re
 
 The project was built with focus on performance, DX (Developer Experience) and maintainability:
 
-*   **Frontend:** React 18, TypeScript, Vite
+*   **Frontend:** React 19, TypeScript, Vite
 *   **Styling:** Tailwind CSS v4, Shadcn UI (Radix Primitives)
 *   **State & Data Fetching:** React Query (TanStack Query)
 *   **Maps:** Mapbox GL JS, Turf.js
