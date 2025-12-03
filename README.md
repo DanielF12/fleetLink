@@ -37,7 +37,7 @@ The project was built with focus on performance, DX (Developer Experience) and m
 
 ## ⚙️ Prerequisites
 
-*   **Node.js:** Version **v20** or higher.
+*   **Node.js:** Version **v20.19++ or 22.12+** or higher.
     *   *Tip: The project has an `.nvmrc` file. If using NVM, just run `nvm use`.*
 
 ---
@@ -65,6 +65,8 @@ The project was built with focus on performance, DX (Developer Experience) and m
     # Mapbox
     VITE_MAPBOX_TOKEN=your-mapbox-token
     ```
+
+    > **Important:** If the server is already running, you must restart it (`Ctrl+C` then `npm run dev`) for the `.env` changes to take effect.
 
 3.  **Install dependencies:**
     ```bash
