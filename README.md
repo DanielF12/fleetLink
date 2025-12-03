@@ -46,8 +46,8 @@ The project was built with focus on performance, DX (Developer Experience) and m
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/daniel-felipe/fleetLink2.git
-    cd fleetLink2
+    git clone https://github.com/DanielF12/fleetLink.git
+    cd fleetLink
     ```
 
 2.  **Configure the environment variables:**
