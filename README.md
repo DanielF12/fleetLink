@@ -1,73 +1,88 @@
-# React + TypeScript + Vite
+# FleetLink 🚛
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**FleetLink** is a platform moderna e eficiente for fleet management, designed to connect drivers, trucks, and loads in an intuitive and responsive interface.
 
-Currently, two official plugins are available:
+The system allows for complete management of the entire logistics cycle, from resource registration to real-time monitoring of deliveries with route visualization on the map.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🚀 Main Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+*   **Dashboard in Real Time:** Overview of the fleet with instant updates (via WebSocket/Firestore) of load status and resource availability.
+*   **Load Management:** Load creation, editing, and tracking. Automatic route calculation (distance and duration) and visualization on the map.
+*   **Driver Management:** Complete registration with CNH validation and historical links.
+*   **Truck Management:** Fleet control, maintenance status, and cargo capacity.
+*   **Intelligent Routing:** Integration with **Mapbox** to trace optimized routes and simulate the journey.
+*   **Robust Business Rules:**
+    *   Block trucks in maintenance.
+    *   Weight capacity validation.
+    *   Referential integrity between Driver and Truck.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🛠️ Stack Technology
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+The project was built with focus on performance, DX (Developer Experience) and maintainability:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+*   **Frontend:** React 18, TypeScript, Vite
+*   **Styling:** Tailwind CSS v4, Shadcn UI (Radix Primitives)
+*   **State & Data Fetching:** React Query (TanStack Query)
+*   **Maps:** Mapbox GL JS, Turf.js
+*   **Backend (BaaS):** Firebase (Auth, Firestore, Storage)
+*   **Forms:** React Hook Form, Yup
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+> For details about architectural choices, trade-offs and optimizations, read the [TECHNICAL_DECISIONS.md](./TECHNICAL_DECISIONS.md) file.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## ⚙️ Prerequisites
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+*   **Node.js:** Version **v20** or higher.
+    *   *Tip: The project has an `.nvmrc` file. If using NVM, just run `nvm use`.*
+
+---
+
+## 📦 How to Run
+
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/daniel-felipe/fleetLink2.git
+    cd fleetLink2
+    ```
+
+2.  **Configure the environment variables:**
+    Create a `.env` file in the root of the project and fill it with your keys (see `.env.example` or use the template below):
+
+    ```env
+    # Firebase
+    VITE_FIREBASE_API_KEY=your-api-key
+    VITE_FIREBASE_AUTH_DOMAIN=your-project.firebaseapp.com
+    VITE_FIREBASE_PROJECT_ID=your-project-id
+    VITE_FIREBASE_STORAGE_BUCKET=your-project.firebasestorage.app
+    VITE_FIREBASE_MESSAGING_SENDER_ID=your-sender-id
+    VITE_FIREBASE_APP_ID=your-app-id
+
+    # Mapbox
+    VITE_MAPBOX_TOKEN=your-mapbox-token
+    ```
+
+3.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
+
+4.  **Run the development server:**
+    ```bash
+    npm run dev
+    ```
+    The app will be available at `http://localhost:5173`.
+
+---
+
+## 🧪 Tests
+
+The project uses **Vitest** for unit tests.
+
+```bash
+npm run test
 ```
